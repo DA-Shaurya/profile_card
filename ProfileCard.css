@@ -1,0 +1,45 @@
+/* Profile Card Styling */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Subtle hover animation */
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Circular Profile Image */
+.profile-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  border: 3px solid #4f46e5;
+}
+
+/* Name with Strong Typography */
+.profile-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+}
+
+/* Short Description */
+.profile-description {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
