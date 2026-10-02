@@ -361,6 +361,40 @@ const fallbackAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
 > Open `data/profiles.js` (or the `users` array in `App.jsx`) and append a new object containing `id`, `name`, `imageUrl`, and `description`. The grid will automatically re-render and include your new card.
 </details>
 
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the Project (`https://github.com/DA-Shaurya/profile_card/fork`)
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+
+---
+
+## 👨‍💻 Author
+
+**Shaurya Singh**
+
+- GitHub: [@DA-Shaurya](https://github.com/DA-Shaurya)
+- Repository: [DA-Shaurya/profile_card](https://github.com/DA-Shaurya/profile_card)
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by Shaurya Singh &bull; Powered by React & Vite</sub>
+</div>
+
+
 
 
 
