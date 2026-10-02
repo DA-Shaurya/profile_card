@@ -210,6 +210,68 @@ profile_card/
 - **`components/PropsBanner.jsx`**: Visual aid illustrating parent-to-child data flow and live profile filter buttons.
 - **`App.jsx`**: Holds state, filters data, maps over array items, and injects props into child instances.
 
+---
+
+## 💻 Code Walkthrough
+
+### 1. Declaring Data in the Parent Container
+
+In `App.jsx`, user profile records are organized in an array of objects. Each profile object has an immutable unique identifier (`id`):
+
+```jsx
+// App.jsx
+const users = [
+  {
+    id: 1,
+    name: "Sarah Jenkins",
+    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+    description: "Software Architect specializing in building scalable web applications and cloud solutions."
+  },
+  {
+    id: 2,
+    name: "Alex Rivera",
+    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    description: "UI/UX Designer passionate about human-centered design and modern user interfaces."
+  }
+];
+```
+
+### 2. Passing Props via Iteration (`map`)
+
+Using JavaScript's `.map()` method, the parent dynamically instantiates child components, passing each property as an individual prop alongside a unique `key`:
+
+```jsx
+<main className="cards-grid">
+  {users.map((user) => (
+    <ProfileCard
+      key={user.id}
+      name={user.name}
+      imageUrl={user.imageUrl}
+      description={user.description}
+    />
+  ))}
+</main>
+```
+
+### 3. Receiving & Rendering Props in Child
+
+In `ProfileCard.jsx`, the component receives the `props` object and extracts properties using parameter destructuring:
+
+```jsx
+function ProfileCard({ name, imageUrl, description }) {
+  return (
+    <div className="profile-card">
+      <img src={imageUrl} alt={name} className="profile-image" />
+      <h2 className="profile-name">{name}</h2>
+      <p className="profile-description">{description}</p>
+    </div>
+  );
+}
+
+export default ProfileCard;
+```
+
+
 
 
 
