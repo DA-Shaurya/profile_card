@@ -96,3 +96,41 @@ flowchart TD
 2. **Reusability**: One `ProfileCard` component definition can render dozens of distinct cards with different content.
 3. **Maintainability**: If the card UI design changes, you only update `ProfileCard.jsx`. If the dataset changes, you only update the data source in `App.jsx`.
 
+---
+
+## 🎛️ Component API & Props
+
+The `ProfileCard` component accepts structured props that govern its display. Below is the complete API specification:
+
+| Prop Name | Type | Required | Default | Description |
+| :--- | :--- | :---: | :--- | :--- |
+| `name` | `string` | **Yes** | `—` | Full name of the individual displayed in the card header. |
+| `imageUrl` | `string` | **Yes** | `—` | HTTPS URL for the profile portrait image. |
+| `description` | `string` | **Yes** | `—` | Brief biography or technical specialization summary. |
+| `role` | `string` | No | `"Software Specialist"` | Job title or primary professional function. |
+| `location` | `string` | No | `"Remote"` | Geographic location or work arrangement. |
+| `skills` | `Array<string>` | No | `[]` | List of technical badges rendered inside the skill pills. |
+| `isOnline` | `boolean` | No | `false` | Availability status toggling the green/gray indicator dot. |
+| `projectsCount`| `number` | No | `0` | Number of completed projects/contributions badge. |
+| `rating` | `string` | No | `"5.0"` | Client or peer review score displayed with star icon. |
+
+### Prop Type Definition & Destructuring Pattern
+
+```jsx
+// components/ProfileCard.jsx
+export default function ProfileCard({
+  name,
+  imageUrl,
+  description,
+  role = "Software Specialist",
+  location = "Remote",
+  skills = [],
+  isOnline = false,
+  projectsCount = 0,
+  rating = "5.0"
+}) {
+  // Component implementation...
+}
+```
+
+
