@@ -326,6 +326,42 @@ const fallbackAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
 />
 ```
 
+---
+
+## 💡 Best Practices & FAQs
+
+### Key Concepts Applied
+
+1. **Stable Keys in Iteration**:
+   Always use unique persistent IDs (`user.id`) rather than array indices for the `key` prop. This allows React's diffing algorithm to correctly identify mutated, added, or deleted nodes without full subtree re-renders.
+
+2. **Default Prop Values**:
+   Use ES6 default arguments (e.g., `role = "Software Specialist"`) to provide predictable fallbacks when optional props are omitted by the parent.
+
+3. **Separation of Concerns**:
+   Keep data retrieval and state logic in the parent container (`App.jsx`), while keeping presentational rendering in the child component (`ProfileCard.jsx`).
+
+### Frequently Asked Questions
+
+<details>
+<summary><strong>Q: Can a child component modify its received props?</strong></summary>
+
+> **No.** In React, props are read-only and immutable. If a child component needs to trigger changes in parent data, the parent must pass a callback function as a prop (e.g., `onDelete={handleDelete}`) which the child invokes.
+</details>
+
+<details>
+<summary><strong>Q: Why use Vite instead of Create React App (CRA)?</strong></summary>
+
+> Vite leverages native browser ES Modules (ESM) and esbuild to deliver millisecond-level cold server start times and instant Hot Module Replacement (HMR), whereas CRA uses slower bundled Webpack setups.
+</details>
+
+<details>
+<summary><strong>Q: How do I add my own profile to the cards?</strong></summary>
+
+> Open `data/profiles.js` (or the `users` array in `App.jsx`) and append a new object containing `id`, `name`, `imageUrl`, and `description`. The grid will automatically re-render and include your new card.
+</details>
+
+
 
 
 
