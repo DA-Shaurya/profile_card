@@ -178,5 +178,38 @@ npm -v
 | `npm run build` | Compiles and optimizes assets into the production-ready `dist/` directory. |
 | `npm run preview` | Locally serves the production build from `dist/` for pre-deployment testing. |
 
+---
+
+## 📁 Project Structure
+
+The project follows a clean, maintainable structure isolating data, reusable components, and top-level application containers:
+
+```
+profile_card/
+├── 📁 components/              # Reusable React components
+│   ├── ProfileCard.jsx        # Modular profile card receiving props
+│   └── PropsBanner.jsx        # Architecture overview banner component
+├── 📁 data/                    # Dynamic mock datasets
+│   └── profiles.js            # Array of user profile data objects
+├── App.css                    # Main layout and responsive styling
+├── App.jsx                    # Root container component (passes props)
+├── index.css                  # Global CSS reset & typography rules
+├── index.html                 # HTML5 entry template
+├── main.jsx                   # React root hydration / DOM mount
+├── package.json               # Dependencies and build scripts
+├── ProfileCard.css            # Scoped styles for the profile card
+├── ProfileCard.jsx            # Standalone child component export
+├── vite.config.js             # Vite build and plugin configurations
+└── README.md                  # Comprehensive project documentation
+```
+
+### Module Responsibilities
+
+- **`data/profiles.js`**: Contains structured profile data (id, name, role, bio, avatar, skills, badges) imitating an API response.
+- **`components/ProfileCard.jsx`**: Pure UI component consuming props. Implements image error fallback handling and hover interaction states.
+- **`components/PropsBanner.jsx`**: Visual aid illustrating parent-to-child data flow and live profile filter buttons.
+- **`App.jsx`**: Holds state, filters data, maps over array items, and injects props into child instances.
+
+
 
 
