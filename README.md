@@ -51,3 +51,48 @@ Whether you are learning the fundamentals of React props, building a portfolio c
 - 🎨 **Sleek Modern UI**: Smooth hover lift transitions, subtle shadows, clean typography, and polished badge elements.
 - ⚡ **Instant HMR with Vite**: Lightning-fast hot module replacement and optimized build tooling.
 - 🛡️ **Defensive Rendering**: Fallback avatars and default prop fallbacks to prevent broken image links or missing data states.
+
+---
+
+## 🏛️ Architecture & Data Flow
+
+In React, data flows in one direction: from top to bottom (Parent to Child). This is known as **Unidirectional Data Flow**.
+
+- **Parent (`App.jsx`)**: Acts as the single source of truth for the dataset. It manages the array of user profile objects and renders the layout wrapper.
+- **Props (`name`, `imageUrl`, `description`, ...)**: Read-only attributes passed into child JSX tags.
+- **Child (`ProfileCard.jsx`)**: Pure presentational component that consumes incoming props and renders the customized card UI.
+
+```mermaid
+flowchart TD
+    subgraph Parent["Parent Container (App.jsx)"]
+        Data[("profilesData Array<br/>[User 1, User 2, User 3, ...]")]
+        Loop["users.map(user => ...)"]
+        Data --> Loop
+    end
+
+    subgraph Props["React Props Interface"]
+        P1["name={user.name}"]
+        P2["imageUrl={user.imageUrl}"]
+        P3["description={user.description}"]
+        P4["role={user.role}"]
+        P5["skills={user.skills}"]
+    end
+
+    subgraph Children["Reusable Child Components (ProfileCard.jsx)"]
+        Card1["ProfileCard Instance #1<br/>(Sarah Jenkins)"]
+        Card2["ProfileCard Instance #2<br/>(Alex Rivera)"]
+        Card3["ProfileCard Instance #3<br/>(Elena Rostova)"]
+    end
+
+    Loop -->|Passes Props| Props
+    Props --> Card1
+    Props --> Card2
+    Props --> Card3
+```
+
+### Why React Props?
+
+1. **Immutability**: Props are read-only (`Object.freeze` semantics in development). A child component cannot directly modify its received props, preventing side effects.
+2. **Reusability**: One `ProfileCard` component definition can render dozens of distinct cards with different content.
+3. **Maintainability**: If the card UI design changes, you only update `ProfileCard.jsx`. If the dataset changes, you only update the data source in `App.jsx`.
+
