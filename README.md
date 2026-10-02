@@ -133,4 +133,50 @@ export default function ProfileCard({
 }
 ```
 
+---
+
+## 🚀 Getting Started
+
+Follow these steps to clone, configure, and launch the project on your local machine.
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+- **Node.js**: `v18.0.0` or higher ([Download Node.js](https://nodejs.org/))
+- **npm** (bundled with Node) or **yarn** / **pnpm**
+
+Check your current versions:
+```bash
+node -v
+npm -v
+```
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/DA-Shaurya/profile_card.git
+   cd profile_card
+   ```
+
+2. **Install project dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the local Vite development server:**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to `http://localhost:5173` (or the port output in your terminal).
+
+### Available Scripts
+
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts the local development server with Vite hot module replacement (HMR). |
+| `npm run build` | Compiles and optimizes assets into the production-ready `dist/` directory. |
+| `npm run preview` | Locally serves the production build from `dist/` for pre-deployment testing. |
+
+
 
