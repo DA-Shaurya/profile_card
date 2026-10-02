@@ -393,11 +393,3 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 <div align="center">
   <sub>Built with ❤️ by Shaurya Singh &bull; Powered by React & Vite</sub>
 </div>
-
-
-
-
-
-
-
-
