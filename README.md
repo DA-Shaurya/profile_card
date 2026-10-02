@@ -271,6 +271,62 @@ function ProfileCard({ name, imageUrl, description }) {
 export default ProfileCard;
 ```
 
+---
+
+## 🎨 UI & Styling Guide
+
+The styling is engineered to be lightweight, modern, and dependency-free:
+
+### 1. Responsive Auto-Fitting Grid
+
+The cards utilize a dynamic CSS Grid layout that automatically calculates columns based on available viewport width, eliminating jarring breakpoints:
+
+```css
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+```
+
+### 2. Micro-Interactions & Hover Lift
+
+Cards feature subtle elevational cues to provide tactile user feedback:
+
+```css
+.profile-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+```
+
+### 3. Graceful Image Loading & Fallbacks
+
+Network errors or broken image URLs automatically trigger dynamic SVG placeholder avatars with user initials:
+
+```jsx
+const [imgError, setImgError] = useState(false);
+
+const fallbackAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+  name || "User"
+)}&background=4f46e5&color=fff&size=200&bold=true`;
+
+<img
+  src={imgError ? fallbackAvatar : imageUrl}
+  alt={`Profile portrait of ${name}`}
+  className="profile-avatar"
+  onError={() => setImgError(true)}
+  loading="lazy"
+/>
+```
+
+
 
 
 
